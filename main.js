@@ -8,14 +8,14 @@ const tabsFromLocalStorage = JSON.parse(localStorage.getItem("myTabs"));
 
 if (tabsFromLocalStorage) {
   myTabs = tabsFromLocalStorage;
-  render();
+  render(myTabs);
 }
-function render() {
+function render(tabs) {
   console.log(myTabs);
   let listItem = "";
-  for (i = 0; i < myTabs.length; i += 1) {
+  for (i = 0; i < tabs.length; i += 1) {
     listItem += `<li class="mt-2 text-1xl font-bold list-none">
-        <a href = "${myTabs[i]}" target="_blank">${myTabs[i]}</a>
+        <a href = "${tabs[i]}" target="_blank">${tabs[i]}</a>
         </li>`;
   }
   outputEl.innerHTML = listItem;
@@ -26,7 +26,7 @@ inputBtn.addEventListener("click", function () {
   myTabs.push(inputEl.value);
   console.log("clicked");
   localStorage.setItem("myTabs", JSON.stringify(myTabs));
-  render();
+  render(myTabs);
 });
 
 delBtn.addEventListener("click", function () {
@@ -41,6 +41,6 @@ tabBtn.addEventListener("click", function () {
     console.log(url);
     myTabs.push(url);
     localStorage.setItem("myTabs", JSON.stringify(myTabs));
-    render();
+    render(myTabs);
   });
 });
