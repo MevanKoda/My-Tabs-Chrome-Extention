@@ -14,7 +14,7 @@ function render() {
   console.log(tabs);
   let listItem = "";
   for (i = 0; i < tabs.length; i += 1) {
-    listItem += `<li class="mt-2 text-2xl font-bold list-none">
+    listItem += `<li class="mt-2 text-1xl font-bold list-none">
         <a href = "${tabs[i]}" target="_blank">${tabs[i]}</a>
         </li>`;
   }
@@ -34,3 +34,4 @@ delBtn.addEventListener("click", function () {
   outputEl.innerHTML = [];
   localStorage.clear();
 });
+
