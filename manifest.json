@@ -1,12 +1,23 @@
 {
     "manifest_version": 3,
+    "name": "My Chrome Extension",
     "version": "1.0",
-    "name": "My Tabs",
-    "action": {
-        "default_popup": "index.html",
-        "default_icon": "icon.png"
-    },
     "permissions": [
-        "tabs"
+      "activeTab",
+      "tabs",
+      "storage"
+    ],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "action": {
+      "default_popup": "popup.html"
+    },
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["content.js"]
+      }
     ]
-}
+  }
+  
